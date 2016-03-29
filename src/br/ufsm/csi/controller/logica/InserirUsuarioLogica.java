@@ -1,41 +1,35 @@
 package br.ufsm.csi.controller.logica;
 
-import javax.servlet.RequestDispatcher;
-import javax.servlet.ServletRequest;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import br.ufsm.csi.model.Usuario;
 import br.ufsm.csi.model.dao.UsuarioDAO;
 
-public class LogarLogica implements Logica{
+public class InserirUsuarioLogica implements Logica{
 
 	@Override
 	public String executa(HttpServletRequest request, HttpServletResponse response) {
 		
-		System.out.println("Entro executa no LogarLogica");
-		
 		String login = request.getParameter("login");
 		String senha = request.getParameter("senha");
-		
+
 		Usuario usuario = new Usuario();
 		usuario.setLogin(login);
 		usuario.setSenha(senha);
 		
 		UsuarioDAO uDAO = new UsuarioDAO();
 		
-		String pagina = "/index.jsp";
-		
-		request.setAttribute("statusLogin", "Erro ao logar!");
+		String pagina = "/WEB-INF/JSP/cadastrarUsuario.jsp";
 		
 		try {
-			boolean retorno = uDAO.autenticarUsuario(usuario);
+			boolean retorno = uDAO.inserirUsuario(usuario);
 		
-			if(retorno){
-				pagina = "/WEB-INF/JSP/principal.jsp";
-				
-				request.setAttribute("statusLogin", usuario);
-			}
+			if(retorno)			
+				request.setAttribute("statusCadastroUsuario", "USUARIO CADASTRADO!");
+			else
+				request.setAttribute("statusCadastroUsuario", "ERRO! USUARIO NAO CADASTRADO!");
+			
 		} catch (Exception e) {
 			e.printStackTrace();
 			

@@ -9,9 +9,9 @@ public class ConectDB {
 
 		Connection conn = null;
 		
-		String url = "jdbc:postgresql://200.132.36.197:5432/internetb";
+		String url = "jdbc:postgresql://localhost:5432/internetb";
 		String user = "postgres";
-		String password = "cijkd";
+		String password = "1234";
 
 		try {
 			Class.forName("org.postgresql.Driver");

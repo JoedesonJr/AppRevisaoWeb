@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import br.ufsm.csi.controller.logica.LogarLogica;
+import br.ufsm.csi.controller.logica.Logica;
 
 @WebServlet(name = "mvc", urlPatterns = { "/mvc" })
 public class ServletMVC extends HttpServlet {
@@ -30,9 +31,10 @@ public class ServletMVC extends HttpServlet {
 		
 		try {
 			Class classeCarregada = Class.forName(classe);
-			LogarLogica logLogica = (LogarLogica) classeCarregada.newInstance();
+			
+			Logica logica = (Logica) classeCarregada.newInstance();
 
-			String fluxo = logLogica.executa(request, response);			
+			String fluxo = logica.executa(request, response);			
 			request.getRequestDispatcher(fluxo)	.forward(request, response);
 			
 		} catch (Exception e) {

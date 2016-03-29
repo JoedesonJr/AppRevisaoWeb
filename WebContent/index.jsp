@@ -11,6 +11,10 @@
 </head>
 <body>
 	
+	<c:if test="${not empty statusLogin}">
+		<h2> USUARIO OU SENHA INVALIDOS! </h2>
+	</c:if>
+	
 	<form action="/AppRevisaoWeb/mvc?logica=LogarLogica" method="post">
 		<br/> <label for="login"> Login </label> <br/>
 		<input type="text" id="Login" name="login" /> <br/>
@@ -20,10 +24,6 @@
 		
 		<button type="submit" name="opcao" value="logar"> Logar </button>
 	</form>
-	
-	<c:if test="${not empty statusLogin}">
-		<h2> USUARIO OU SENHA INVALIDOS! </h2>
-	</c:if>
 
 </body>
 </html>

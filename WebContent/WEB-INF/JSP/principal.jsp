@@ -12,7 +12,7 @@
 <body>
 	<h1>Usuario: ${statusLogin.login}</h1>
 	
-	<a href="/AppRevisaoWeb/servletController?opcao=principalCadastrarUSuario"> Cadastrar Usuario </a>
+	<a href="/AppRevisaoWeb/mvc?logica=InserirPaginaLogica"> Cadastrar Usuario </a>
 
 </body>
 </html>

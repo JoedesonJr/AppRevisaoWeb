@@ -12,7 +12,7 @@
 <body>
 	<h1>Cadastrar Usuario</h1>
 	
-	<form action="/AppRevisaoWeb/servletController" method="post">
+	<form action="/AppRevisaoWeb/mvc?logica=InserirUsuarioLogica" method="post">
 		<br/> <label for="login"> Login </label> <br/>
 		<input type="text" id="Login" name="login" /> <br/>
 		
