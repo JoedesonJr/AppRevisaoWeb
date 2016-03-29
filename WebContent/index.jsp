@@ -10,8 +10,8 @@
 <title>App Revisão Web</title>
 </head>
 <body>
-
-	<form action="/AppRevisaoWeb/servletController" method="post">
+	
+	<form action="/AppRevisaoWeb/mvc?logica=LogarLogica" method="post">
 		<br/> <label for="login"> Login </label> <br/>
 		<input type="text" id="Login" name="login" /> <br/>
 		
