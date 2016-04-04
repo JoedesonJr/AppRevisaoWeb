@@ -3,6 +3,7 @@ package br.ufsm.csi.model;
 public class Usuario {
 	private String login;
 	private String senha;
+	private int id;
 
 	public String getLogin() {
 		return login;
@@ -18,5 +19,13 @@ public class Usuario {
 
 	public void setSenha(String senha) {
 		this.senha = senha;
+	}
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
 	}
 }

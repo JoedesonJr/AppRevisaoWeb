@@ -5,14 +5,16 @@ import javax.servlet.http.HttpServletResponse;
 
 import br.ufsm.csi.model.dao.UsuarioDAO;
 
-public class InserirPaginaLogica implements Logica{
+public class AlterarPaginaLogica implements Logica{
 
 	@Override
 	public String executa(HttpServletRequest request, HttpServletResponse response) {
 		System.out.println("Entro Inserir Pagina");
-		request.setAttribute("usuarios", new UsuarioDAO().getUsuarios());
+		String idUsuario = request.getParameter("id");
 		
-		return "/WEB-INF/JSP/cadastrarUsuario.jsp";
+		request.setAttribute("usuarioAlterar", idUsuario);
+		
+		return "/WEB-INF/JSP/alterarUsuario.jsp";
 	}
-
+	
 }

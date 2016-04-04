@@ -6,30 +6,27 @@ import javax.servlet.http.HttpServletResponse;
 import br.ufsm.csi.model.Usuario;
 import br.ufsm.csi.model.dao.UsuarioDAO;
 
-public class InserirUsuarioLogica implements Logica{
+public class AlterarUsuarioLogica implements Logica{
 
 	@Override
 	public String executa(HttpServletRequest request, HttpServletResponse response) {
-		
+		String idUsuario = request.getParameter("id");
 		String login = request.getParameter("login");
 		String senha = request.getParameter("senha");
-
-		Usuario usuario = new Usuario();
-		usuario.setLogin(login);
-		usuario.setSenha(senha);
+		
+		System.out.println("Alterar usuario: " +idUsuario);
 		
 		UsuarioDAO uDAO = new UsuarioDAO();
 		
 		String pagina = "/WEB-INF/JSP/cadastrarUsuario.jsp";
 		
 		try {
-			boolean retorno = uDAO.inserirUsuario(usuario);
+			boolean retorno = uDAO.AlterarUsuario(idUsuario, login, senha);
 		
 			if(retorno)			
-				request.setAttribute("statusCadastroUsuario", "USUARIO CADASTRADO!");
+				request.setAttribute("statusAlterarUsuario", "USUARIO ALTERADO!");
 			else
-				request.setAttribute("statusCadastroUsuario", "ERRO! USUARIO NAO CADASTRADO!");
-			
+				request.setAttribute("statusAlterarUsuario", "ERRO! USUARIO NAO ALTERADO!");
 		} catch (Exception e) {
 			e.printStackTrace();
 			
