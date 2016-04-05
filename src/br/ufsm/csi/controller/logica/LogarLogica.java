@@ -34,6 +34,8 @@ public class LogarLogica implements Logica{
 			if(retorno){
 				pagina = "/WEB-INF/JSP/principal.jsp";
 				
+				request.getSession().setAttribute("statusLogin", usuario);
+				
 				request.setAttribute("statusLogin", usuario);
 			}
 		} catch (Exception e) {
